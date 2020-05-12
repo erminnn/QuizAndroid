@@ -12,10 +12,6 @@ import kotlin.math.log
 
 
 class StartQuizFragment : Fragment() {
-    lateinit var poruka : String
-    var index = 0
-    val pitanja = listOf<String>("P1","P2","P3","P4")
-    val odg = mutableListOf<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -24,28 +20,19 @@ class StartQuizFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val v = inflater.inflate(R.layout.fragment_start_quiz, container, false)
-        val tv : TextView = v.findViewById(R.id.tvChooseLevel) as TextView
-        tv.text = pitanja.get(index)
-        if(savedInstanceState != null){
-            tv.text = poruka
-        }
         return  v;
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if((pitanja.count())== index){
-            tvChooseLevel.text = "ZAVRSENO"
-        }else {
-            btnPromjeni.setOnClickListener {
-                tvChooseLevel.text = pitanja.get(index)
-                    poruka = tvChooseLevel.text.toString()
-                index++
-                odg.add(etOdg.text.toString())
+        btnPromjeni.setOnClickListener {
+            val mainQuizFragment = MainQuizFragment();
+            val fragmentManager = activity!!.supportFragmentManager
+            fragmentManager.beginTransaction().apply {
+                replace(R.id.fragmentHolder,mainQuizFragment)
+                commit()
             }
+        }
         }
     }
 
-
-
-}

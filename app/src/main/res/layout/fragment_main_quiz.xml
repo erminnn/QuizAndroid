@@ -4,28 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartQuizFragment">
+    tools:context=".MainQuizFragment">
 
     <TextView
-        android:id="@+id/tvChooseLevel"
+        android:id="@+id/tvQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Odaberi level"
+        android:text="PITANJE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.100000024" />
+        app:layout_constraintVertical_bias="0.26999998" />
+
+    <FrameLayout
+        android:id="@+id/answerFragmentHolder"
+        android:layout_width="match_parent"
+        android:layout_height="455dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSubmitAnswer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvQuestion"
+        app:layout_constraintVertical_bias="0.562"></FrameLayout>
 
     <Button
-        android:id="@+id/btnPromjeni"
+        android:id="@+id/btnSubmitAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Promijeni"
+        android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvChooseLevel" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
