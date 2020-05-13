@@ -1,18 +1,23 @@
-package com.example.kviz
+package com.example.kviz.answerfragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.kviz.MultiChoiceAdapter
+import com.example.kviz.R
+import com.example.kviz.models.MultiChoiceItem
 import kotlinx.android.synthetic.main.fragment_multi_choice_answer.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class MultiChoiceAnswerFragment(private val multiChoiceAnswers : List<MultiChoiceItem>) : Fragment() {
-
+class MultiChoiceAnswerFragment(private val multiChoiceAnswers : List<MultiChoiceItem>) : Fragment(){
+    var l = mutableListOf<MultiChoiceItem>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,10 +29,12 @@ class MultiChoiceAnswerFragment(private val multiChoiceAnswers : List<MultiChoic
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         var multiAns = multiChoiceAnswers
-        var choice = 0
-        val adapter = MultiChoiceAdapter(multiAns)
+        val adapter = MultiChoiceAdapter(multiAns,{item -> personItemClicked(item)})
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(activity)
     }
+
+    private fun personItemClicked(item: MultiChoiceItem) {
+Log.i("TAG",item.answer)    }
 
 }

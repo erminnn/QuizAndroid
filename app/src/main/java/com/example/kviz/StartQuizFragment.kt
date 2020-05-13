@@ -30,6 +30,7 @@ class StartQuizFragment : Fragment() {
             val fragmentManager = activity!!.supportFragmentManager
             fragmentManager.beginTransaction().apply {
                 replace(R.id.fragmentHolder,mainQuizFragment)
+                addToBackStack(null)
                 commit()
             }
         }
