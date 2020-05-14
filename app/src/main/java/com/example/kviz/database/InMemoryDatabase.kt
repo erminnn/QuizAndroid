@@ -1,13 +1,11 @@
 package com.example.kviz.database
 
-import com.example.kviz.models.MultiChoiceItem
-import com.example.kviz.models.MultiChoiceQuestion
-import com.example.kviz.models.RadioQuestion
-import com.example.kviz.models.TextQuestion
+import com.example.kviz.models.*
 import java.util.*
 import kotlin.random.Random
 
 object InMemoryDatabase {
+    val answers = mutableListOf<Pair<List<String>,List<String>?>>()
  val easyQuestions = listOf(
      TextQuestion(1,"EP1T","EO1"),
      TextQuestion(1,"EP1T","EO1"),
@@ -105,9 +103,4 @@ object InMemoryDatabase {
             return questions
     }
 
-    fun getQ() : List<Any> {
-        val questions = mutableListOf<Any>()
-        questions.add(easyQuestions.get(easyQuestions.size-1))
-        return questions
-    }
 }

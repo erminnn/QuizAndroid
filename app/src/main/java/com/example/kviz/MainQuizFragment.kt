@@ -26,6 +26,8 @@ class MainQuizFragment : Fragment(){
 
     val questions = InMemoryDatabase.getQuestions(8,1)
     var index = 0
+    val databaseAnswers = InMemoryDatabase.answers
+
 
 
     override fun onCreateView(
@@ -42,6 +44,7 @@ class MainQuizFragment : Fragment(){
         setQuestion(question)
 
         btnSubmitAnswer.setOnClickListener {
+            Log.d("answr",databaseAnswers.toString())
             val current_question = questions.get(index)
             if (current_question is TextQuestion) {
                 Log.i("TG","${current_question.correctAnswer.toString()}")

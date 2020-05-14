@@ -29,12 +29,10 @@ class MultiChoiceAnswerFragment(private val multiChoiceAnswers : List<MultiChoic
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         var multiAns = multiChoiceAnswers
-        val adapter = MultiChoiceAdapter(multiAns,{item -> personItemClicked(item)})
+        val adapter = MultiChoiceAdapter(multiAns)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(activity)
     }
 
-    private fun personItemClicked(item: MultiChoiceItem) {
-Log.i("TAG",item.answer)    }
 
 }
