@@ -17,7 +17,8 @@ import kotlinx.android.synthetic.main.fragment_multi_choice_answer.*
  * A simple [Fragment] subclass.
  */
 class MultiChoiceAnswerFragment(private val multiChoiceAnswers : List<MultiChoiceItem>) : Fragment(){
-    var l = mutableListOf<MultiChoiceItem>()
+    var multiAns = multiChoiceAnswers
+    val adapter = MultiChoiceAdapter(multiAns)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,10 +29,12 @@ class MultiChoiceAnswerFragment(private val multiChoiceAnswers : List<MultiChoic
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        var multiAns = multiChoiceAnswers
-        val adapter = MultiChoiceAdapter(multiAns)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(activity)
+    }
+
+    fun save(correctAns : List<String>){
+        adapter.saveAns(correctAns)
     }
 
 

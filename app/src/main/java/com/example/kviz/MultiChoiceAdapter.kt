@@ -26,7 +26,7 @@ class MultiChoiceAdapter(private val multiChoiceAnswers : List<MultiChoiceItem>)
 
     override fun onBindViewHolder(holder: MultiChoiceViewHolder, position: Int) {
         val currentItem = multiChoiceAnswers[position]
-       holder.multiChoiceItem.text = currentItem.answer
+        holder.multiChoiceItem.text = currentItem.answer
         holder.multiChoiceItem.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {
                 if(holder.multiChoiceItem.isChecked){
@@ -34,13 +34,17 @@ class MultiChoiceAdapter(private val multiChoiceAnswers : List<MultiChoiceItem>)
                 }else{
                     checkedAnswers.remove(currentItem.answer)
                 }
-                databaseAnswers.add(Pair(checkedAnswers,null))
+
 
             }})
     }
 
     class MultiChoiceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val multiChoiceItem : CheckBox = itemView.cbAnswer
+    }
+
+    fun saveAns(correctAns : List<String>){
+        databaseAnswers.add(Pair(checkedAnswers,correctAns))
     }
 
 
