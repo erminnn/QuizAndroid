@@ -4,6 +4,7 @@ import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -18,12 +19,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var toggle : ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        if(savedInstanceState != null){
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragmentHolder,currentFragment)
-                commit()
-            }
-        }else {
 
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main)
@@ -32,8 +27,8 @@ class MainActivity : AppCompatActivity() {
                 replace(R.id.fragmentHolder, homeFragment)
                 commit()
             }
-            currentFragment = homeFragment
-        }
+
+
         toggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState() //its ready to be used
@@ -62,11 +57,5 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-
-    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
-        super.onSaveInstanceState(outState, outPersistentState)
-        val fragment : Fragment? = supportFragmentManager.findFragmentById(R.id.fragmentHolder)
-        currentFragment = fragment as Fragment
-    }
 
 }

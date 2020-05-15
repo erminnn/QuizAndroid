@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.RadioButton
 import androidx.fragment.app.Fragment
 import com.example.kviz.answerfragments.MultiChoiceAnswerFragment
@@ -14,9 +15,11 @@ import com.example.kviz.database.InMemoryDatabase
 import com.example.kviz.models.MultiChoiceQuestion
 import com.example.kviz.models.RadioQuestion
 import com.example.kviz.models.TextQuestion
+import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_main_quiz.*
 import kotlinx.android.synthetic.main.fragment_radio_answer.*
 import kotlinx.android.synthetic.main.fragment_text_answer.*
+import kotlin.math.log
 
 class MainQuizFragment : Fragment(){
     val questions = InMemoryDatabase.getQuestions(8,1)
@@ -30,7 +33,6 @@ class MainQuizFragment : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        Log.i("frag","MainQuiz")
         return inflater.inflate(R.layout.fragment_main_quiz, container, false)
     }
 
@@ -42,6 +44,12 @@ class MainQuizFragment : Fragment(){
 
     fun setQuestion(question : Any){
         Log.d("baza",databaseAnswers.toString())
+        if(index != 0){
+            for (fragment in childFragmentManager.fragments) {
+                Log.i("IMAIH","BROJ")
+                childFragmentManager.beginTransaction().remove(fragment).commit()
+            }
+        }
         if(question is TextQuestion){
 
 
@@ -58,7 +66,9 @@ class MainQuizFragment : Fragment(){
 
 
             btnSubmitAnswer.setOnClickListener {
-                val userAnswer = listOf(etTextAnswer.text.toString())
+
+
+                val userAnswer = listOf(textAnswerFragment.editText.text.toString())
                 val correctAnswer = listOf(question.correctAnswer)
 
                 databaseAnswers.add(Pair(userAnswer,correctAnswer))
@@ -91,8 +101,7 @@ class MainQuizFragment : Fragment(){
             }
 
             btnSubmitAnswer.setOnClickListener {
-                val checkedRadioAnswerId = rgRadioAnswer.checkedRadioButtonId
-                val userAnswer = listOf(activity!!.findViewById<RadioButton>(checkedRadioAnswerId).text.toString())
+                val userAnswer = listOf(radioAnswerFragment.ANS)
                 val correctAnswer = listOf(question.correctAnswer)
 
                 databaseAnswers.add(Pair(userAnswer,correctAnswer))
