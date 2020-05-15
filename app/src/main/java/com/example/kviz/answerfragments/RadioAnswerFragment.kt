@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_radio_answer.*
  */
 class RadioAnswerFragment : Fragment() {
     lateinit var radioGroup: RadioGroup
-    lateinit var ANS : String
+    var ANS : String = ""
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

@@ -33,8 +33,12 @@ class MultiChoiceAnswerFragment(private val multiChoiceAnswers : List<MultiChoic
         recyclerView.layoutManager = LinearLayoutManager(activity)
     }
 
-    fun save(correctAns : List<String>){
+    fun saveAnswersInAdapter(correctAns : List<String>){
         adapter.saveAns(correctAns)
+    }
+
+    fun getCheckedAnswersSizeFromFragment() : Int {
+        return adapter.getCheckedAnswersSizeFromAdapter()
     }
 
 

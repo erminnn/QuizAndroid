@@ -19,21 +19,33 @@
 
     <FrameLayout
         android:id="@+id/answerFragmentHolder"
-        android:layout_width="match_parent"
-        android:layout_height="455dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnSubmitAnswer"
+        android:layout_width="422dp"
+        android:layout_height="387dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvQuestion"
-        app:layout_constraintVertical_bias="0.562"></FrameLayout>
+        app:layout_constraintVertical_bias="0.562">
 
-    <Button
-        android:id="@+id/btnSubmitAnswer"
+
+        <Button
+            android:id="@+id/btnSubmitAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+            android:text="Submit" />
+    </FrameLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnJoker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit"
+        android:clickable="true"
+        android:src="@drawable/ic_launcher_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

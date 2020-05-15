@@ -47,6 +47,10 @@ class MultiChoiceAdapter(private val multiChoiceAnswers : List<MultiChoiceItem>)
         databaseAnswers.add(Pair(checkedAnswers,correctAns))
     }
 
+    fun getCheckedAnswersSizeFromAdapter() : Int {
+        return checkedAnswers.size
+    }
+
 
 }
 

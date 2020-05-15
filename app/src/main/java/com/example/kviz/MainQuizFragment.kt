@@ -1,5 +1,6 @@
 package com.example.kviz
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.RadioButton
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.kviz.answerfragments.MultiChoiceAnswerFragment
 import com.example.kviz.answerfragments.RadioAnswerFragment
@@ -25,6 +27,7 @@ class MainQuizFragment : Fragment(){
     val questions = InMemoryDatabase.getQuestions(8,1)
     var index = 0
     val databaseAnswers = InMemoryDatabase.answers
+    var jokerUsed = false
 
 
 
@@ -40,6 +43,45 @@ class MainQuizFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
         var question = questions.get(index)
         setQuestion(question)
+            btnJoker.setOnClickListener {
+                if(jokerUsed == false) {
+                jokerUsed = true
+                val intent = Intent()
+                val question = questions.get(index)
+                if (question is TextQuestion) {
+                    intent.action = Intent.ACTION_SEND
+                    intent.putExtra(
+                        Intent.EXTRA_TEXT,
+                        "Hello can u help me with this question : ${question.question}"
+                    )
+                    intent.type = "text/plain"
+                    startActivity(Intent.createChooser(intent, "Share to : "))
+                } else if (question is RadioQuestion) {
+                    intent.action = Intent.ACTION_SEND
+                    intent.putExtra(
+                        Intent.EXTRA_TEXT,
+                        "Hello can u help me with this question : ${question.question} , i have options true or false"
+                    )
+                    intent.type = "text/plain"
+                    startActivity(Intent.createChooser(intent, "Share to : "))
+
+                } else if (question is MultiChoiceQuestion) {
+                    intent.action = Intent.ACTION_SEND
+                    var choices = ""
+                    for (choice in question.answerChoices) {
+                        choices = choices + choice.answer + "\n"
+                    }
+                    intent.putExtra(
+                        Intent.EXTRA_TEXT,
+                        "Hello can u help me with this question : ${question.question} i have this choices \n ${choices}"
+                    )
+                    intent.type = "text/plain"
+                    startActivity(Intent.createChooser(intent, "Share to : "))
+                }
+            }else{
+                    Toast.makeText(context,"U Used joker",Toast.LENGTH_LONG).show()
+                }
+        }
     }
 
     fun setQuestion(question : Any){
@@ -51,11 +93,8 @@ class MainQuizFragment : Fragment(){
             }
         }
         if(question is TextQuestion){
-
-
             val textAnswerFragment = TextAnswerFragment()
             val fragmentManager = childFragmentManager
-
 
             tvQuestion.text = question.question
 
@@ -65,26 +104,28 @@ class MainQuizFragment : Fragment(){
             }
 
 
+
             btnSubmitAnswer.setOnClickListener {
+                if(textAnswerFragment.editText.text.toString() != ""){
+                    val userAnswer = listOf(textAnswerFragment.editText.text.toString())
+                    val correctAnswer = listOf(question.correctAnswer)
 
+                    databaseAnswers.add(Pair(userAnswer,correctAnswer))
 
-                val userAnswer = listOf(textAnswerFragment.editText.text.toString())
-                val correctAnswer = listOf(question.correctAnswer)
-
-                databaseAnswers.add(Pair(userAnswer,correctAnswer))
-
-
-                if(index <= questions.size-2) {
-                    index += 1
-                    val question = questions.get(index)
-                    setQuestion(question)
-                }else{
-                    val fragmentManager = activity!!.supportFragmentManager
-                    val endQuizFragment = EndQuizFragment()
-                    fragmentManager.beginTransaction().apply {
-                        replace(R.id.fragmentHolder,endQuizFragment)
-                        commit()
+                    if(index <= questions.size-2) {
+                        index += 1
+                        val question = questions.get(index)
+                        setQuestion(question)
+                    }else{
+                        val fragmentManager = activity!!.supportFragmentManager
+                        val endQuizFragment = EndQuizFragment()
+                        fragmentManager.beginTransaction().apply {
+                            replace(R.id.fragmentHolder,endQuizFragment)
+                            commit()
+                        }
                     }
+                }else{
+                    Toast.makeText(context,"Text field empty",Toast.LENGTH_LONG).show()
                 }
             }
 
@@ -101,22 +142,26 @@ class MainQuizFragment : Fragment(){
             }
 
             btnSubmitAnswer.setOnClickListener {
-                val userAnswer = listOf(radioAnswerFragment.ANS)
-                val correctAnswer = listOf(question.correctAnswer)
+                if(radioAnswerFragment.ANS != ""){
+                    val userAnswer = listOf(radioAnswerFragment.ANS)
+                    val correctAnswer = listOf(question.correctAnswer)
 
-                databaseAnswers.add(Pair(userAnswer,correctAnswer))
+                    databaseAnswers.add(Pair(userAnswer,correctAnswer))
 
-                if(index <= questions.size-2) {
-                    index += 1
-                    val question = questions.get(index)
-                    setQuestion(question)
-                }else{
-                    val fragmentManager = activity!!.supportFragmentManager
-                    val endQuizFragment = EndQuizFragment()
-                    fragmentManager.beginTransaction().apply {
-                        replace(R.id.fragmentHolder,endQuizFragment)
-                        commit()
+                    if(index <= questions.size-2) {
+                        index += 1
+                        val question = questions.get(index)
+                        setQuestion(question)
+                    }else{
+                        val fragmentManager = activity!!.supportFragmentManager
+                        val endQuizFragment = EndQuizFragment()
+                        fragmentManager.beginTransaction().apply {
+                            replace(R.id.fragmentHolder,endQuizFragment)
+                            commit()
+                        }
                     }
+                }else{
+                    Toast.makeText(context,"Radio answer not checked empty",Toast.LENGTH_LONG).show()
                 }
             }
 
@@ -137,38 +182,27 @@ class MainQuizFragment : Fragment(){
             }
 
             btnSubmitAnswer.setOnClickListener {
-                multiChoiceAnswerFragment.save(correctAns)
-                if(index <= questions.size-2) {
-                    index += 1
-                    val  question = questions.get(index)
-                    setQuestion(question)
-                }else{
-                    val fragmentManager = activity!!.supportFragmentManager
-                    val endQuizFragment = EndQuizFragment()
-                    fragmentManager.beginTransaction().apply {
-                        replace(R.id.fragmentHolder,endQuizFragment)
-                        commit()
+                if(multiChoiceAnswerFragment.getCheckedAnswersSizeFromFragment() != 0){
+                    multiChoiceAnswerFragment.saveAnswersInAdapter(correctAns)
+                    if(index <= questions.size-2) {
+                        index += 1
+                        val  question = questions.get(index)
+                        setQuestion(question)
+                    }else{
+                        val fragmentManager = activity!!.supportFragmentManager
+                        val endQuizFragment = EndQuizFragment()
+                        fragmentManager.beginTransaction().apply {
+                            replace(R.id.fragmentHolder,endQuizFragment)
+                            commit()
+                        }
                     }
+                }else{
+                    Toast.makeText(context,"MultiChoice not checked",Toast.LENGTH_LONG).show()
                 }
             }
-
         }
+
+
     }
-
-    /*
-    fun getVisibleFragment() {
-        val fragmentManager = activity!!.supportFragmentManager
-        val fragments: List<Fragment> = fragmentManager.fragments
-        if (fragments != null) {
-            for (fragment in fragments) {
-                Log.i("frag" , "eo")
-            }
-        }
-    }
-
-     */
-
-
-
 
 }
