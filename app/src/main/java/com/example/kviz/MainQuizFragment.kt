@@ -24,11 +24,11 @@ import kotlinx.android.synthetic.main.fragment_text_answer.*
 import kotlin.math.log
 
 class MainQuizFragment : Fragment(){
-    val questions = InMemoryDatabase.getQuestions(8,1)
     var index = 0
     val databaseAnswers = InMemoryDatabase.answers
     var jokerUsed = false
-
+    var level = 0
+    val questions = InMemoryDatabase.getQuestions(8,level)
 
 
     override fun onCreateView(
@@ -36,7 +36,10 @@ class MainQuizFragment : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main_quiz, container, false)
+        val view = inflater.inflate(R.layout.fragment_main_quiz, container, false)
+        val bundle : Bundle = this.arguments as Bundle
+        level = bundle.getInt("level")
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -85,6 +88,7 @@ class MainQuizFragment : Fragment(){
     }
 
     fun setQuestion(question : Any){
+        Log.i("level" , level.toString())
         Log.d("baza",databaseAnswers.toString())
         if(index != 0){
             for (fragment in childFragmentManager.fragments) {

@@ -18,14 +18,40 @@
         app:layout_constraintVertical_bias="0.100000024" />
 
     <Button
-        android:id="@+id/btnPromjeni"
+        android:id="@+id/btnEasyLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Promijeni"
+        android:layout_marginTop="188dp"
+        android:text="Easy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvChooseLevel"
+        />
+
+    <Button
+        android:id="@+id/btnMediumLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEasyLevel"
+       />
+
+    <Button
+        android:id="@+id/btnHardLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hard"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvChooseLevel" />
+        app:layout_constraintTop_toBottomOf="@+id/btnMediumLevel"
+        app:layout_constraintVertical_bias="0.274"
+       />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
