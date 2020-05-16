@@ -146,8 +146,8 @@ class MainQuizFragment : Fragment(){
             }
 
             btnSubmitAnswer.setOnClickListener {
-                if(radioAnswerFragment.ANS != ""){
-                    val userAnswer = listOf(radioAnswerFragment.ANS)
+                if(radioAnswerFragment.answer != ""){
+                    val userAnswer = listOf(radioAnswerFragment.answer)
                     val correctAnswer = listOf(question.correctAnswer)
 
                     databaseAnswers.add(Pair(userAnswer,correctAnswer))

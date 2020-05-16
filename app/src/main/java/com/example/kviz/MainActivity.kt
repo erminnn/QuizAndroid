@@ -15,7 +15,6 @@ import kotlinx.android.synthetic.main.fragment_home.*
 Created by eomeragić 9/5/2020
  */
 class MainActivity : AppCompatActivity() {
-    lateinit var currentFragment : Fragment
     lateinit var toggle : ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
