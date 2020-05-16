@@ -64,7 +64,7 @@ object InMemoryDatabase {
         MultiChoiceQuestion("HPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA")))
     )
 
-
+// komentar
     fun getQuestions(number : Int,level : Int): List<Any> {
         val num_of_easy = (number/2).toInt()
         val num_of_medium = (num_of_easy/2).toInt()
