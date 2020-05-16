@@ -37,12 +37,14 @@ class MainActivity : AppCompatActivity() {
 
         navView.setNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.item1 -> {
+                R.id.item_about -> {
                     val aboutFragment = AboutFragment()
                     supportFragmentManager.beginTransaction().apply {
                     replace(R.id.fragmentHolder,aboutFragment)
                         addToBackStack(null)
-                    commit()}
+                    commit()
+                        drawerLayout.closeDrawers()
+                    }
                 }
             }
             true
