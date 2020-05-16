@@ -1,16 +1,12 @@
 package com.example.kviz
 
-import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.util.Log
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_home.*
+
 /*
 Created by eomeragić 9/5/2020
  */
@@ -38,12 +34,22 @@ class MainActivity : AppCompatActivity() {
 
         navView.setNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.item1 -> {
+                R.id.item_about -> {
                     val aboutFragment = AboutFragment()
                     supportFragmentManager.beginTransaction().apply {
-                    replace(R.id.fragmentHolder,aboutFragment)
+                        replace(R.id.fragmentHolder, aboutFragment)
                         addToBackStack(null)
-                    commit()}
+                        commit()
+                        drawerLayout.closeDrawers()
+                    }
+                }
+                R.id.item_home -> {
+                    val homeFragment = HomeFragment()
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.fragmentHolder, homeFragment)
+                        commit()
+                        drawerLayout.closeDrawers()
+                    }
                 }
             }
             true
