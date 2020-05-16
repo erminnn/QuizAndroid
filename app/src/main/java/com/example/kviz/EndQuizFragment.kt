@@ -42,7 +42,7 @@ class EndQuizFragment : Fragment() {
         }
         Log.d("baza",databaseAnswers.toString()+ "baza nakon zavrsetka kviza")
 
-        tvRezultat.text = "Tacnoo ste odgovorili na ${tacnoOdg} pitanja"
+        tvRezultat.text = "Od ${databaseAnswers.size} pitanja, tacno ste odgovorili na ${tacnoOdg} pitanja, a netacno na ${netacnoOdg}"
 
 
     }

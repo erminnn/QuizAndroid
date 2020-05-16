@@ -6,7 +6,7 @@ import kotlin.random.Random
 
 object InMemoryDatabase {
 
-    //Pair(user answers,correct answers)
+
     val answers = mutableListOf<Pair<List<String>,List<String>>>()
     val easyQuestions = listOf(
         TextQuestion("EP1T","EO1"),
@@ -69,9 +69,9 @@ object InMemoryDatabase {
 
 // komentar
     fun getQuestions(number : Int,level : Int): List<Any> {
-        var num_of_easy = (number/2).toInt()
-        var num_of_medium = (num_of_easy/2).toInt()
-        var num_of_hard = num_of_medium
+        val num_of_easy = (number/2).toInt()
+        val num_of_medium = (num_of_easy/2).toInt()
+        val num_of_hard = num_of_medium
         val easy_indexes = mutableListOf<Int>()
         val medium_indexes = mutableListOf<Int>()
         val hard_indexes = mutableListOf<Int>()
