@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kviz.database.InMemoryDatabase
 import com.example.kviz.models.MultiChoiceItem
@@ -26,7 +27,7 @@ class MultiChoiceAdapter(private val multiChoiceAnswers : List<MultiChoiceItem>)
 
     override fun onBindViewHolder(holder: MultiChoiceViewHolder, position: Int) {
         val currentItem = multiChoiceAnswers[position]
-        holder.multiChoiceItem.text = currentItem.answer
+        holder.multiChoiceItemTextView.text = currentItem.answer
         holder.multiChoiceItem.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {
                 if(holder.multiChoiceItem.isChecked){
@@ -40,6 +41,7 @@ class MultiChoiceAdapter(private val multiChoiceAnswers : List<MultiChoiceItem>)
     }
 
     class MultiChoiceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val multiChoiceItemTextView : TextView = itemView.tvMultiChoiceAnswer
         val multiChoiceItem : CheckBox = itemView.cbAnswer
     }
 
