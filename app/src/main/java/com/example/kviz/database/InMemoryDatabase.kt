@@ -1,7 +1,9 @@
 package com.example.kviz.database
 
 import com.example.kviz.models.*
+import java.lang.Math.round
 import java.util.*
+import kotlin.math.roundToInt
 import kotlin.random.Random
 
 object InMemoryDatabase {
@@ -10,71 +12,97 @@ object InMemoryDatabase {
     val answers = mutableListOf<Pair<List<String>,List<String>>>()
     val easyQuestions = listOf(
         TextQuestion("EP1T","EO1"),
-        TextQuestion("EP1T","EO1"),
-        TextQuestion("EP1T","EO1"),
-        TextQuestion("EP1T","EO1"),
-        TextQuestion("EP1T","EO1"),
-        RadioQuestion("EPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("EPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("EPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("EPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("EPR", listOf("DA","NE"),"DA"),
-        MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("Prvi"),MultiChoiceItem("Drugi"),MultiChoiceItem("Treci"),MultiChoiceItem("Cetvrti")), listOf(MultiChoiceItem("Prvi"),MultiChoiceItem("Drugi")))
-                /*
-        MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA")))
+        TextQuestion("EP2T","EO1"),
+        TextQuestion("EP3T","EO1"),
+        TextQuestion("EP4T","EO1"),
+        TextQuestion("EP5T","EO1"),
+        RadioQuestion("EPR1", listOf("DA","NE"),"DA"),
+        RadioQuestion("EPR2", listOf("DA","NE"),"DA"),
+        RadioQuestion("EPR3", listOf("DA","NE"),"DA"),
+        RadioQuestion("EPR4", listOf("DA","NE"),"DA"),
+        RadioQuestion("EPR5", listOf("DA","NE"),"DA"),
+        MultiChoiceQuestion("EPM1", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
+        MultiChoiceQuestion("EPM2", listOf(MultiChoiceItem("Prvi"),MultiChoiceItem("Drugi"),MultiChoiceItem("Treci"),MultiChoiceItem("Cetvrti")), listOf(MultiChoiceItem("Prvi"),MultiChoiceItem("Drugi")))
+        /*
+MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
+MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
+MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
+MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA")))
 
-                 */
+         */
     )
 
     val mediumQuestions = listOf(
         TextQuestion("MP1T","EO1"),
-        TextQuestion("MP1T","EO1"),
-        TextQuestion("MP1T","EO1"),
-        TextQuestion("MP1T","EO1"),
-        TextQuestion("MP1T","EO1"),
-        RadioQuestion("MPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("MPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("MPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("MPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("MPR", listOf("DA","NE"),"DA"),
-        MultiChoiceQuestion("MPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("MPM", listOf(MultiChoiceItem("YES"),MultiChoiceItem("NO"),MultiChoiceItem("MYB")), listOf(MultiChoiceItem("YEs"))),
-        MultiChoiceQuestion("MPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("MPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("MPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("MPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA")))
+        TextQuestion("MP2T","EO1"),
+        TextQuestion("MP3T","EO1"),
+        TextQuestion("MP4T","EO1"),
+        TextQuestion("MP5T","EO1"),
+        RadioQuestion("MPR1", listOf("DA","NE"),"DA"),
+        RadioQuestion("MPR2", listOf("DA","NE"),"DA"),
+        RadioQuestion("MPR3", listOf("DA","NE"),"DA"),
+        RadioQuestion("MPR4", listOf("DA","NE"),"DA"),
+        RadioQuestion("MPR5", listOf("DA","NE"),"DA"),
+        MultiChoiceQuestion("MPM1", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
+        MultiChoiceQuestion("MPM2", listOf(MultiChoiceItem("YES"),MultiChoiceItem("NO"),MultiChoiceItem("MYB")), listOf(MultiChoiceItem("YES"))),
+        MultiChoiceQuestion("MPM3", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
+        MultiChoiceQuestion("MPM4", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
+        MultiChoiceQuestion("MPM5", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
+        MultiChoiceQuestion("MPM6", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA")))
     )
     val hardQuestions = listOf(
         TextQuestion("HP1T","EO1"),
-        TextQuestion("HP1T","EO1"),
-        TextQuestion("HP1T","EO1"),
-        TextQuestion("HP1T","EO1"),
-        TextQuestion("HP1T","EO1"),
-        RadioQuestion("HPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("HPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("HPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("HPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("HPR", listOf("DA","NE"),"DA"),
-        MultiChoiceQuestion("HPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("HPM", listOf(MultiChoiceItem("YES"),MultiChoiceItem("NO"),MultiChoiceItem("MYB")), listOf(MultiChoiceItem("YEs"))),
-        MultiChoiceQuestion("HPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("HPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("HPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("HPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA")))
+        TextQuestion("HP2T","EO1"),
+        TextQuestion("HP3T","EO1"),
+        TextQuestion("HP4T","EO1"),
+        TextQuestion("HP5T","EO1"),
+        RadioQuestion("HPR1", listOf("DA","NE"),"DA"),
+        RadioQuestion("HPR2", listOf("DA","NE"),"DA"),
+        RadioQuestion("HPR3", listOf("DA","NE"),"DA"),
+        RadioQuestion("HPR4", listOf("DA","NE"),"DA"),
+        RadioQuestion("HPR5", listOf("DA","NE"),"DA"),
+        MultiChoiceQuestion("HPM1", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
+        MultiChoiceQuestion("HPM2", listOf(MultiChoiceItem("YES"),MultiChoiceItem("NO"),MultiChoiceItem("MYB")), listOf(MultiChoiceItem("YES"))),
+        MultiChoiceQuestion("HPM3", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
+        MultiChoiceQuestion("HPM4", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
+        MultiChoiceQuestion("HPM5", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
+        MultiChoiceQuestion("HPM6", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA")))
     )
 
 
-    fun getQuestions(number : Int,level : Int): List<Any> {
-        val num_of_easy = (number/2).toInt()
-        val num_of_medium = (num_of_easy/2).toInt()
-        val num_of_hard = num_of_medium
+    fun getQuestions(numberOfQuestions : Int,level : Int): List<Any> {
+        var number = numberOfQuestions.toFloat()
+        var num_of_easy: Int
+        var num_of_medium: Int
+        var num_of_hard: Int
+
+        when (level) {           // easy
+            1 -> {
+                num_of_easy = (number / 2).roundToInt()
+                num_of_medium = (number / 4).roundToInt()
+                num_of_hard = (number / 4).roundToInt()
+            }
+            2 -> {
+                num_of_easy = (number / 4).roundToInt()
+                num_of_medium = (number / 2).roundToInt()
+                num_of_hard = (number / 4).roundToInt()
+            }
+            3 -> {
+                num_of_easy = (number / 4).roundToInt()
+                num_of_medium = (number / 4).roundToInt()
+                num_of_hard = (number / 2).roundToInt()
+            }
+            else -> {
+                num_of_easy = 0
+                num_of_medium = 0
+                num_of_hard = number.toInt()
+            }
+        }
+
         val easy_indexes = mutableListOf<Int>()
         val medium_indexes = mutableListOf<Int>()
         val hard_indexes = mutableListOf<Int>()
+
         val questions = mutableListOf<Any>()
 
         for(i in 1..num_of_easy){
