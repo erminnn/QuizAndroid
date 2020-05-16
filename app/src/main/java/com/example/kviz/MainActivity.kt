@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
                     val aboutFragment = AboutFragment()
                     supportFragmentManager.beginTransaction().apply {
                     replace(R.id.fragmentHolder,aboutFragment)
+                        addToBackStack(null)
                     commit()}
                 }
             }

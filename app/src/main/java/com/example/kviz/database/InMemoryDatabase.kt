@@ -20,11 +20,14 @@ object InMemoryDatabase {
         RadioQuestion("EPR", listOf("DA","NE"),"DA"),
         RadioQuestion("EPR", listOf("DA","NE"),"DA"),
         MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("YES"),MultiChoiceItem("NO"),MultiChoiceItem("MYB")), listOf(MultiChoiceItem("YEs"))),
+        MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("Prvi"),MultiChoiceItem("Drugi"),MultiChoiceItem("Treci"),MultiChoiceItem("Cetvrti")), listOf(MultiChoiceItem("Prvi"),MultiChoiceItem("Drugi")))
+                /*
         MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
         MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
         MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
         MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA")))
+
+                 */
     )
 
     val mediumQuestions = listOf(

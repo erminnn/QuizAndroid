@@ -14,6 +14,7 @@ class EndQuizFragment : Fragment() {
     val databaseAnswers = InMemoryDatabase.answers
     var tacnoOdg = 0
     var netacnoOdg = 0
+    var tacan = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,13 +27,18 @@ class EndQuizFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         for(answer in databaseAnswers){
+            tacan = true
             for(userAnswer in answer.first){
                 if(!answer.second.contains(userAnswer)){
-                    netacnoOdg++
-                }else{
-                    tacnoOdg++
+                    tacan = false
                 }
             }
+            if(tacan == true){
+                tacnoOdg++
+            }else{
+                netacnoOdg++
+            }
+
         }
         Log.d("baza",databaseAnswers.toString()+ "baza nakon zavrsetka kviza")
 
