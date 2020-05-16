@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".answerfragments.RadioAnswerFragment">
 
+
     <RadioGroup
         android:id="@+id/rgRadioAnswer"
         android:layout_width="wrap_content"

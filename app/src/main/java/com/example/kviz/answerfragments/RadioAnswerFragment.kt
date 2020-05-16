@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_radio_answer.*
  */
 class RadioAnswerFragment : Fragment() {
     lateinit var radioGroup: RadioGroup
-    var ANS : String = ""
+    var answer : String = ""
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,9 +30,9 @@ class RadioAnswerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
             if(checkedId == R.id.rbTrue){
-                ANS = rbTrue.text.toString()
+                answer = rbTrue.text.toString()
             }else if(checkedId == R.id.rbFalse){
-                ANS = rbFalse.text.toString()
+                answer = rbFalse.text.toString()
             }
         }
     }
