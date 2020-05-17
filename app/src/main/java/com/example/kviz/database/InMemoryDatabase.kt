@@ -43,9 +43,22 @@ object InMemoryDatabase {
 
 
     fun getQuestions(number : Int,level : Int): List<Any> {
-        var num_of_easy = (number/2).toInt()
-        var num_of_medium = (num_of_easy/2).toInt()
-        var num_of_hard = num_of_medium
+        var num_of_easy = 0
+        var num_of_medium = 0
+        var num_of_hard = 0
+        if(level == 1){
+            num_of_easy = (number/2).toInt()
+             num_of_medium = (num_of_easy/2).toInt()
+            num_of_hard = num_of_medium
+        }else if(level == 2){
+            num_of_easy = (number/4).toInt()
+             num_of_medium = (number/2).toInt()
+             num_of_hard = num_of_easy
+        }else{
+             num_of_easy = (number/4).toInt()
+            num_of_medium = (number/4).toInt()
+             num_of_hard =(number/2).toInt()
+        }
         val easy_indexes = mutableListOf<Int>()
         val medium_indexes = mutableListOf<Int>()
         val hard_indexes = mutableListOf<Int>()

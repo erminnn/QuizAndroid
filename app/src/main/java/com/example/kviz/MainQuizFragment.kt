@@ -28,7 +28,8 @@ class MainQuizFragment : Fragment(){
     val databaseAnswers = InMemoryDatabase.answers
     var jokerUsed = false
     var level = 0
-    val questions = InMemoryDatabase.getQuestions(8,level)
+    lateinit var questions : List<Any>
+    val database = InMemoryDatabase
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -36,6 +37,9 @@ class MainQuizFragment : Fragment(){
         val view = inflater.inflate(R.layout.fragment_main_quiz, container, false)
         val bundle : Bundle = this.arguments as Bundle
         level = bundle.getInt("level")
+        questions = database.getQuestions(8,level)
+        Log.d("baza",questions.toString())
+
         return view
     }
 
