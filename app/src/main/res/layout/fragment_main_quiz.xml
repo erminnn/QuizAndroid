@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             android:fontFamily="@font/amiko"
-            android:text="Submit"
+            android:text="@string/submitAnswer"
             android:textColor="@color/colorPrimary"
             android:textColorHighlight="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"

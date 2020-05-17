@@ -6,11 +6,7 @@
         android:title="@string/menu_item1"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/item_home"
+        android:id="@+id/item_books"
         android:title="@string/menu_item2"
         app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/item3"
-        android:title="@string/menu_item3"
-        app:showAsAction="never" />
 </menu>

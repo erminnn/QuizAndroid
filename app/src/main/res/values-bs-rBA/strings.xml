@@ -2,15 +2,12 @@
 <resources>
     <string name="app_name">Kviz</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="home_fragemnt_text">Dobro dosli</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="open">open</string>
     <string name="close">close</string>
-    <string name="menu_item1">About</string>
-    <string name="menu_item2">Home</string>
-    <string name="menu_item3">Item 3</string>
+    <string name="menu_item1">O nama</string>
+    <string name="menu_item2">Knjige i Linkovi</string>
     <string name="about">
         O nama:\n\n
         <b>Razvili:</b>\n
@@ -28,4 +25,15 @@
     <string name="btnMediumText">Srednje</string>
     <string name="btnHardText">Teško</string>
     <string name="gameOverText">KRAJ</string>
+    <string name="shareResult">Podijeli svoj rezultat</string>
+    <string name="playAgain">Igraj ponovo</string>
+    <string name="submitAnswer">Potvrdi odgovor</string>
+    <string name="books">
+       Knjige:\n\n
+        <b>https://docs.python.org/3/tutorial/</b>\n
+        <b>https://www.w3schools.com/python/</b>\n
+        <b>https://www.learnpython.org</b>\n
+        <b>https://www.tutorialspoint.com/python/index.htm</b>
+        <b>https://www.guru99.com/python-tutorials.html</b>
+    </string>
 </resources>

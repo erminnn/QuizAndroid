@@ -51,6 +51,15 @@ class MainActivity : AppCompatActivity() {
                         drawerLayout.closeDrawers()
                     }
                 }
+                R.id.item_books -> {
+                    val booksFragment = BooksFragment()
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.fragmentHolder,booksFragment)
+                        addToBackStack(null)
+                        commit()
+                        drawerLayout.closeDrawers()
+                    }
+                }
             }
             true
         }
