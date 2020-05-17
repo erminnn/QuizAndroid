@@ -31,10 +31,7 @@ class MainQuizFragment : Fragment(){
     val questions = InMemoryDatabase.getQuestions(8,level)
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_main_quiz, container, false)
         val bundle : Bundle = this.arguments as Bundle
@@ -88,7 +85,6 @@ class MainQuizFragment : Fragment(){
     }
 
     fun setQuestion(question : Any){
-        Log.i("level" , level.toString())
         Log.d("baza",databaseAnswers.toString())
         if(index != 0){
             for (fragment in childFragmentManager.fragments) {

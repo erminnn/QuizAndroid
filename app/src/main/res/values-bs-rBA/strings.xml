@@ -1,8 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Kviz</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="home_fragemnt_text">Welcome to Python programming quiz</string>
+    <string name="home_fragemnt_text">Dobro dosli</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="open">open</string>
@@ -20,11 +21,11 @@
         <b>Profesor: </b> Elmedin Selmanović
         <b>Asistent: </b> Eldina Maslo
     </string>
-    <string name="welcome_text1">Welcome</string>
-    <string name="welcome_text2">Click \"Play\" to start quiz!</string>
+    <string name="welcome_text1">Dobro došli u Kviz</string>
+    <string name="welcome_text2">Pritisnite \"Play\" za pocetak kviza!</string>
     <string name="btn_play">Play</string>
-    <string name="btnEasyText">Easy</string>
-    <string name="btnMediumText">Medium</string>
-    <string name="btnHardText">Hard</string>
-    <string name="gameOverText">END</string>
+    <string name="btnEasyText">Lahko</string>
+    <string name="btnMediumText">Srednje</string>
+    <string name="btnHardText">Teško</string>
+    <string name="gameOverText">KRAJ</string>
 </resources>

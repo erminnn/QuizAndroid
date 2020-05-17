@@ -1,5 +1,8 @@
 package com.example.kviz
 
+import android.app.Activity
+import android.app.AlertDialog
+import android.content.Context
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,9 +14,9 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
-/*
-Created by eomeragić 9/5/2020
- */
+import java.util.*
+
+
 class MainActivity : AppCompatActivity() {
     lateinit var toggle : ActionBarDrawerToggle
 
@@ -25,7 +28,9 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.fragmentHolder, homeFragment)
                 commit()
+
             }
+
 
 
         toggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
@@ -58,6 +63,5 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
 
 }

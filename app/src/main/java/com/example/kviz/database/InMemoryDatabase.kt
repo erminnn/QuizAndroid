@@ -9,13 +9,13 @@ object InMemoryDatabase {
     //Pair(user answers,correct answers)
     val answers = mutableListOf<Pair<List<String>,List<String>>>()
     val easyQuestions = listOf(
-        TextQuestion("EP1T","EO1"),
-        TextQuestion("EP1T","EO1"),
-        TextQuestion("EP1T","EO1"),
-        TextQuestion("EP1T","EO1"),
-        TextQuestion("EP1T","EO1"),
+        TextQuestion("EP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1T","EO1"),
+        TextQuestion("EP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1T","EO1"),
+        TextQuestion("EP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1T","EO1"),
+        TextQuestion("EP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1T","EO1"),
+        TextQuestion("EP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1T","EO1"),
         RadioQuestion("EPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("EPR", listOf("DA","NE"),"DA"),
+        RadioQuestion("EP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1T", listOf("DA","NE"),"DA"),
         RadioQuestion("EPR", listOf("DA","NE"),"DA"),
         RadioQuestion("EPR", listOf("DA","NE"),"DA"),
         RadioQuestion("EPR", listOf("DA","NE"),"DA"),
@@ -29,7 +29,9 @@ object InMemoryDatabase {
 
                  */
     )
-
+    fun deleteAnswers(){
+        answers.clear()
+    }
     val mediumQuestions = listOf(
         TextQuestion("MP1T","EO1"),
         TextQuestion("MP1T","EO1"),

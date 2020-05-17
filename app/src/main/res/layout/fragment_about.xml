@@ -3,13 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AboutFragment">
+    tools:context=".AboutFragment"
+    android:background="@drawable/ic_bg">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_vertical"
         android:textAlignment="center"
+        android:fontFamily="@font/amiko"
+        android:textColor="#FFFFFF"
         android:text="@string/about" />
 
 </FrameLayout>
