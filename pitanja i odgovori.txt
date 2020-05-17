@@ -1,0 +1,133 @@
+pitanja i odgovori
+
+Koji od sljedećih izraza kreira riječnik?
+a)  d = {}
+b)  d = {"john":40, "peter":45}
+c)  d = {40:"john", 45:"peter"}
+d)  d = (40:"john", 45:"50")
+
+b, c, d
+
+Koji od sljedećih operatora je cjelobrojno dijeljenje?
+a)  /
+b)  //
+c)  %
+d)  Ni jedno od ponuđenog
+
+b
+
+Koja je najveća moguća dužina identifikatora? (naziv varijable, klase, ...)
+a)  31 karakter
+b)  63 karaktera
+c)  79 karaktera
+d)  Ni jedno od ponuđenog
+
+d
+
+Zašto nazivi lokalnih varijabla koji počinju sa donjom crtom ("_") nisu dobra praksa?
+a)  jer se koriste za privatne varijable u klasi
+b)  jer zbune interpreter
+c)  jer se koriste za globalne varijable
+d)  jer usporavaju izvršavanje programa
+
+a
+
+Koji od sljedećih izraza je neispravan?
+a)  abc = 1,000,000
+b)  a b c = 1000 2000 3000
+c)  a,b,c = 1000, 2000, 3000
+d)  a_b_c = 1,000,000
+
+b
+
+Šta je rezultat sljedećeg koda?\ntry:\n\tif '1' != 1:\n\t\traise "nekaGreska"\n\telse:\n\t\tprint("nekaGreska se nije desila")\nexcept "nekaGreska":\n\tprint("nekaGreska se desila")
+a)  nekaGreska se desila
+b)  nekaGreska se nije desila
+c)  invalid code
+d)  ni jedno od ponuđenog
+
+c
+
+Neka je lista1 = [2, 33, 222, 14, 25]. Šta nam daje sljedeći izraz list1[-1]?
+a)  Error
+b)  None
+c)  25
+d)  2
+
+c
+
+Da bi otvorili fajl "c:scores.txt" za zapisivanje, koristimo:
+a)  outfile = open("c:scores.txt", "r")
+b)  outfile = open("c:scores.txt", "w")
+c)  outfile = open(file="c:scores.txt", "r")
+d)  outfile = open(file="c:scores.txt", "o")
+
+Šta je rezultat sljedećeg koda?\nf = None\n\nfor i in range(5):\n\twith open("data.txt", "w") as f:\n\t\tif i > 2:\n\t\t\tbreak
+print(f.closed)
+
+a)  True
+b)  False
+c)  None
+d)  Error
+
+a
+
+Kada će se else dio try-except-else koda biti izvršen?
+a)  uvijek
+b)  kada se desi izuzetak
+c)  kada se ne desi ni jedan izuzetak
+d)  kada se desi izuzetak unutar except bloka
+
+c
+
+Da li je python case-sensitive (tj. da li razlikuje velika i mala slova)?
+True
+False
+
+True
+
+Da li je uvlačenje neophodno u pythonu?
+True
+False
+
+True
+
+Koja je ključna riječ sa kojom se definiše funkcija u pythonu?
+_
+def
+
+Koja se ključna riječ koristi za prekid petlje?
+
+break
+
+Koja se ključna riječ koristi za prekid trenutne iteracije petlje?
+
+continue
+
+Koji se specijalni karakter koristi za jednolinijske komentare u pythonu?
+
+#
+
+Napišite sintaksu za prazan višelinijski komentar u pythonu:
+
+""""""
+
+Napišite operator koji obrće vrijednost boolean varijable:
+
+not
+
+Kako se zove funkcija koja vraća dužinu list-e, string-a, array-a, itd.?
+
+len
+
+Napišite indeks koji vraća predzadnji član neke liste:
+
+-2
+
+Napišite izraz koji će razdvojiti sljedeći string na listu od 3 stringa
+i spasiti je u varijablu "l":
+s = "a b c"
+
+l = s.split()
+
+

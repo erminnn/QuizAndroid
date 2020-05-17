@@ -15,13 +15,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-            super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_main)
-            val homeFragment = HomeFragment();
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragmentHolder, homeFragment)
-                commit()
-            }
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        val homeFragment = HomeFragment();
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragmentHolder, homeFragment)
+            commit()
+        }
 
 
         toggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
@@ -62,6 +62,5 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
 
 }

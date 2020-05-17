@@ -28,4 +28,15 @@
     <string name="btnMediumText">Srednje</string>
     <string name="btnHardText">Teško</string>
     <string name="gameOverText">KRAJ</string>
+    <string name="about_us1">O nama</string>
+    <string name="developed_by">Razvili:</string>
+    <string name="ermin_omeragic">Ermin Omeragić</string>
+    <string name="enver_kovacevic">Enver Kovačević</string>
+    <string name="university_name">Prirodno-matematički</string>
+    <string name="university">Fakultet:</string>
+    <string name="teachers">Predavači:</string>
+    <string name="professor">Profesor:</string>
+    <string name="professor_name">Elmedin Selmanović</string>
+    <string name="assistant">Asistent:</string>
+    <string name="assistant_name">Eldina Maslo</string>
 </resources>

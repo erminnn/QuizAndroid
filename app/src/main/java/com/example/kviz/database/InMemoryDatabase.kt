@@ -11,62 +11,34 @@ object InMemoryDatabase {
 
     val answers = mutableListOf<Pair<List<String>,List<String>>>()
     val easyQuestions = listOf(
-        TextQuestion("EP1T","EO1"),
-        TextQuestion("EP2T","EO1"),
-        TextQuestion("EP3T","EO1"),
-        TextQuestion("EP4T","EO1"),
-        TextQuestion("EP5T","EO1"),
-        RadioQuestion("EPR1", listOf("DA","NE"),"DA"),
-        RadioQuestion("EPR2", listOf("DA","NE"),"DA"),
-        RadioQuestion("EPR3", listOf("DA","NE"),"DA"),
-        RadioQuestion("EPR4", listOf("DA","NE"),"DA"),
-        RadioQuestion("EPR5", listOf("DA","NE"),"DA"),
-        MultiChoiceQuestion("EPM1", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("EPM2", listOf(MultiChoiceItem("Prvi"),MultiChoiceItem("Drugi"),MultiChoiceItem("Treci"),MultiChoiceItem("Cetvrti")), listOf(MultiChoiceItem("Prvi"),MultiChoiceItem("Drugi")))
-        /*
-MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA")))
-
-         */
+        TextQuestion("Napišite indeks koji vraća predzadnji član neke liste:","-2"),
+        TextQuestion("Kako se zove funkcija koja vraća dužinu list-e, string-a, array-a, itd.?","len"),
+        TextQuestion("Napišite operator koji obrće vrijednost boolean varijable:","not"),
+        TextQuestion("Koji se specijalni karakter koristi za jednolinijske komentare u pythonu?", "#"),
+        RadioQuestion("Da li je python case-sensitive (tj. da li razlikuje velika i mala slova)?", listOf("DA","NE"),"DA"),
+        MultiChoiceQuestion("Kada će se else dio try-except-else koda biti izvršen?", listOf(MultiChoiceItem("uvijek"),MultiChoiceItem("kada se desi izuzetak"),MultiChoiceItem("kada se ne desi ni jedan izuzetak"), MultiChoiceItem("kada se desi izuzetak unutar except bloka")), listOf(MultiChoiceItem("kada se ne desi ni jedan izuzetak"))),
+        MultiChoiceQuestion("Šta je rezultat sljedećeg koda?\nf = None\n\nfor i in range(5):\n\twith open(\"data.txt\", \"w\") as f:\n\t\tif i > 2:\n\t\t\tbreak", listOf(MultiChoiceItem("Prvi"),MultiChoiceItem("Drugi"),MultiChoiceItem("Treci"),MultiChoiceItem("Cetvrti")), listOf(MultiChoiceItem("Prvi"),MultiChoiceItem("Drugi"))),
+        MultiChoiceQuestion("Koji od sljedećih izraza kreira riječnik?", listOf(MultiChoiceItem("d = {}"),MultiChoiceItem("d = {\"john\":40, \"peter\":45}"),MultiChoiceItem("d = {40:\"john\", 45:\"peter\"}"), MultiChoiceItem("d = (40:\"john\", 45:\"50\")")), listOf(MultiChoiceItem("d = {\"john\":40, \"peter\":45}"),MultiChoiceItem("d = {40:\"john\", 45:\"peter\"}"), MultiChoiceItem("d = (40:\"john\", 45:\"50\")")))
     )
 
     val mediumQuestions = listOf(
-        TextQuestion("MP1T","EO1"),
-        TextQuestion("MP2T","EO1"),
-        TextQuestion("MP3T","EO1"),
-        TextQuestion("MP4T","EO1"),
-        TextQuestion("MP5T","EO1"),
-        RadioQuestion("MPR1", listOf("DA","NE"),"DA"),
-        RadioQuestion("MPR2", listOf("DA","NE"),"DA"),
-        RadioQuestion("MPR3", listOf("DA","NE"),"DA"),
-        RadioQuestion("MPR4", listOf("DA","NE"),"DA"),
-        RadioQuestion("MPR5", listOf("DA","NE"),"DA"),
-        MultiChoiceQuestion("MPM1", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("MPM2", listOf(MultiChoiceItem("YES"),MultiChoiceItem("NO"),MultiChoiceItem("MYB")), listOf(MultiChoiceItem("YES"))),
-        MultiChoiceQuestion("MPM3", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("MPM4", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("MPM5", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("MPM6", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA")))
+        TextQuestion("Koja se ključna riječ koristi za prekid petlje?", "break"),
+        TextQuestion("Koja se ključna riječ koristi za prekid trenutne iteracije petlje?", "continue"),
+        TextQuestion("Koja je ključna riječ sa kojom se definiše funkcija u pythonu?", "def"),
+        RadioQuestion("Da li je moguće izvršiti eksplicitnu konverziju u python-u?", listOf("Da","Ne"),"Da"),
+        MultiChoiceQuestion("Da bi otvorili fajl \"c:scores.txt\" za zapisivanje, koristimo:", listOf(MultiChoiceItem("outfile = open(\"c:scores.txt\", \"r\")"),MultiChoiceItem("outfile = open(\"c:scores.txt\", \"w\")"),MultiChoiceItem("outfile = open(file=\"c:scores.txt\", \"r\")"),MultiChoiceItem("outfile = open(file=\"c:scores.txt\", \"o\")")), listOf(MultiChoiceItem("outfile = open(\"c:scores.txt\", \"w\")"))),
+        MultiChoiceQuestion("Neka je lista1 = [2, 33, 222, 14, 25]. Šta nam daje sljedeći izraz list1a[-1]?", listOf(MultiChoiceItem("Error"),MultiChoiceItem("None"),MultiChoiceItem("25"), MultiChoiceItem("2")), listOf(MultiChoiceItem("25"))),
+        MultiChoiceQuestion("Koja je najveća moguća dužina identifikatora? (naziv varijable, klase, ...)", listOf(MultiChoiceItem("31 karakter"),MultiChoiceItem("63 karaktera"), MultiChoiceItem("Ni jedno od ponuđenog")), listOf(MultiChoiceItem("Ni jedno od ponuđenog"))),
+        MultiChoiceQuestion("Koji od sljedećih operatora je cjelobrojno dijeljenje?", listOf(MultiChoiceItem("/"),MultiChoiceItem("//"),MultiChoiceItem("%"), MultiChoiceItem("Ni jedno od ponuđenog")), listOf(MultiChoiceItem("//")))
     )
     val hardQuestions = listOf(
-        TextQuestion("HP1T","EO1"),
-        TextQuestion("HP2T","EO1"),
-        TextQuestion("HP3T","EO1"),
-        TextQuestion("HP4T","EO1"),
-        TextQuestion("HP5T","EO1"),
-        RadioQuestion("HPR1", listOf("DA","NE"),"DA"),
-        RadioQuestion("HPR2", listOf("DA","NE"),"DA"),
-        RadioQuestion("HPR3", listOf("DA","NE"),"DA"),
-        RadioQuestion("HPR4", listOf("DA","NE"),"DA"),
-        RadioQuestion("HPR5", listOf("DA","NE"),"DA"),
-        MultiChoiceQuestion("HPM1", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("HPM2", listOf(MultiChoiceItem("YES"),MultiChoiceItem("NO"),MultiChoiceItem("MYB")), listOf(MultiChoiceItem("YES"))),
-        MultiChoiceQuestion("HPM3", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("HPM4", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("HPM5", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("HPM6", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA")))
+        TextQuestion("Napišite izraz koji će razdvojiti sljedeći string na listu od 3 stringa i spasiti je u varijablu \"l\":\ns = \"a b c\"","l = s.split()"),
+        TextQuestion("Napišite sintaksu za prazan višelinijski komentar u pythonu:","\"\"\"\"\"\""),
+        RadioQuestion("Da li je uvlačenje neophodno u pythonu?", listOf("DA","NE"),"DA"),
+        MultiChoiceQuestion("Šta je rezultat sljedećeg koda?\nf = None\n\nfor i in range(5):\n\twith open(\"data.txt\", \"w\") as f:\n\t\tif i > 2:\n\t\t\tbreak", listOf(MultiChoiceItem("True"),MultiChoiceItem("False"),MultiChoiceItem("None"),MultiChoiceItem("Error")), listOf(MultiChoiceItem("True"))),
+        MultiChoiceQuestion("Šta je rezultat sljedećeg koda?\ntry:\n\tif '1' != 1:\n\t\traise \"nekaGreska\"\n\telse:\n\t\tprint(\"nekaGreska se nije desila\")\nexcept \"nekaGreska\":\n\tprint(\"nekaGreska se desila\")", listOf(MultiChoiceItem("nekaGreska se desila"),MultiChoiceItem("nekaGreska se nije desila"),MultiChoiceItem("invalid code"), MultiChoiceItem("ni jedno od ponuđenog")), listOf(MultiChoiceItem("invalid code"))),
+        MultiChoiceQuestion("Koji od sljedećih izraza je neispravan?", listOf(MultiChoiceItem("abc = 1,000,000"),MultiChoiceItem("a b c = 1000 2000 3000"),MultiChoiceItem("a,b,c = 1000, 2000, 3000"), MultiChoiceItem("a_b_c = 1,000,000")), listOf(MultiChoiceItem("a b c = 1000 2000 3000"))),
+        MultiChoiceQuestion("Zašto nazivi lokalnih varijabla koji počinju sa donjom crtom (\"_\") nisu dobra praksa?", listOf(MultiChoiceItem("jer se koriste za privatne varijable u klasi"),MultiChoiceItem("jer zbune interpreter"),MultiChoiceItem("jer se koriste za globalne varijable"), MultiChoiceItem("jer usporavaju izvršavanje programa")), listOf(MultiChoiceItem("jer se koriste za privatne varijable u klasi")))
     )
 
 
