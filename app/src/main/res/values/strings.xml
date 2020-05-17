@@ -21,4 +21,11 @@
         <b>Profesor: </b> Elmedin Selmanović
         <b>Asistent: </b> Eldina Maslo
     </string>
+    <string name="welcome_text1">Dobro došli u Kviz</string>
+    <string name="welcome_text2">Pritisnite \"Play\" za pocetak kviza!</string>
+    <string name="btn_play">Play</string>
+    <string name="btnEasyText">Lahko</string>
+    <string name="btnMediumText">Srednje</string>
+    <string name="btnHardText">Teško</string>
+    <string name="gameOverText">KRAJ</string>
 </resources>
