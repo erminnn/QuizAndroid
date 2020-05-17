@@ -8,65 +8,37 @@ object InMemoryDatabase {
 
     //Pair(user answers,correct answers)
     val answers = mutableListOf<Pair<List<String>,List<String>>>()
-    val easyQuestions = listOf(
-        TextQuestion("EP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1T","EO1"),
-        TextQuestion("EP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1T","EO1"),
-        TextQuestion("EP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1T","EO1"),
-        TextQuestion("EP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1T","EO1"),
-        TextQuestion("EP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1T","EO1"),
-        RadioQuestion("EPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("EP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1TEP1T", listOf("DA","NE"),"DA"),
-        RadioQuestion("EPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("EPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("EPR", listOf("DA","NE"),"DA"),
-        MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("Prvi"),MultiChoiceItem("Drugi"),MultiChoiceItem("Treci"),MultiChoiceItem("Cetvrti")), listOf(MultiChoiceItem("Prvi"),MultiChoiceItem("Drugi")))
-                /*
-        MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("EPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA")))
 
-                 */
-    )
     fun deleteAnswers(){
         answers.clear()
     }
+
+    val easyQuestions = listOf(
+        TextQuestion("Napišite indeks koji vraća predzadnji član neke liste:","-2"),
+        TextQuestion("Kako se zove funkcija koja vraća dužinu list-e, string-a, array-a, itd.?","len"),
+        TextQuestion("Napišite operator koji obrće vrijednost boolean varijable:","not"),
+        TextQuestion("Koji se specijalni karakter koristi za jednolinijske komentare u pythonu?", "#"),
+        RadioQuestion("Da li je python case-sensitive (tj. da li razlikuje velika i mala slova)?", listOf("DA","NE"),"DA"),
+        MultiChoiceQuestion("Kada će se else dio try-except-else koda biti izvršen?", listOf(MultiChoiceItem("uvijek"),MultiChoiceItem("kada se desi izuzetak"),MultiChoiceItem("kada se ne desi ni jedan izuzetak"), MultiChoiceItem("kada se desi izuzetak unutar except bloka")), listOf(MultiChoiceItem("kada se ne desi ni jedan izuzetak"))),
+        MultiChoiceQuestion("Koji od sljedećih izraza kreira riječnik?", listOf(MultiChoiceItem("d = {}"),MultiChoiceItem("d = {\"john\":40, \"peter\":45}"),MultiChoiceItem("d = {40:\"john\", 45:\"peter\"}"), MultiChoiceItem("d = (40:\"john\", 45:\"50\")")), listOf(MultiChoiceItem("d = {\"john\":40, \"peter\":45}"),MultiChoiceItem("d = {40:\"john\", 45:\"peter\"}"), MultiChoiceItem("d = (40:\"john\", 45:\"50\")")))
+    )
+
     val mediumQuestions = listOf(
-        TextQuestion("MP1T","EO1"),
-        TextQuestion("MP1T","EO1"),
-        TextQuestion("MP1T","EO1"),
-        TextQuestion("MP1T","EO1"),
-        TextQuestion("MP1T","EO1"),
-        RadioQuestion("MPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("MPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("MPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("MPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("MPR", listOf("DA","NE"),"DA"),
-        MultiChoiceQuestion("MPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("MPM", listOf(MultiChoiceItem("YES"),MultiChoiceItem("NO"),MultiChoiceItem("MYB")), listOf(MultiChoiceItem("YEs"))),
-        MultiChoiceQuestion("MPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("MPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("MPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("MPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA")))
+        TextQuestion("Koja se ključna riječ koristi za prekid petlje?", "break"),
+        TextQuestion("Koja se ključna riječ koristi za prekid trenutne iteracije petlje?", "continue"),
+        TextQuestion("Koja je ključna riječ sa kojom se definiše funkcija u pythonu?", "def"),
+        RadioQuestion("Da li je moguće izvršiti eksplicitnu konverziju u python-u?", listOf("Da","Ne"),"Da"),
+        MultiChoiceQuestion("Da bi otvorili fajl \"c:scores.txt\" za zapisivanje, koristimo:", listOf(MultiChoiceItem("outfile = open(\"c:scores.txt\", \"r\")"),MultiChoiceItem("outfile = open(\"c:scores.txt\", \"w\")"),MultiChoiceItem("outfile = open(file=\"c:scores.txt\", \"r\")"),MultiChoiceItem("outfile = open(file=\"c:scores.txt\", \"o\")")), listOf(MultiChoiceItem("outfile = open(\"c:scores.txt\", \"w\")"))),
+        MultiChoiceQuestion("Neka je lista1 = [2, 33, 222, 14, 25]. Šta nam daje sljedeći izraz list1a[-1]?", listOf(MultiChoiceItem("Error"),MultiChoiceItem("None"),MultiChoiceItem("25"), MultiChoiceItem("2")), listOf(MultiChoiceItem("25"))),
+        MultiChoiceQuestion("Koja je najveća moguća dužina identifikatora? (naziv varijable, klase, ...)", listOf(MultiChoiceItem("31 karakter"),MultiChoiceItem("63 karaktera"), MultiChoiceItem("Ni jedno od ponuđenog")), listOf(MultiChoiceItem("Ni jedno od ponuđenog"))),
+        MultiChoiceQuestion("Koji od sljedećih operatora je cjelobrojno dijeljenje?", listOf(MultiChoiceItem("/"),MultiChoiceItem("//"),MultiChoiceItem("%"), MultiChoiceItem("Ni jedno od ponuđenog")), listOf(MultiChoiceItem("//")))
     )
     val hardQuestions = listOf(
-        TextQuestion("HP1T","EO1"),
-        TextQuestion("HP1T","EO1"),
-        TextQuestion("HP1T","EO1"),
-        TextQuestion("HP1T","EO1"),
-        TextQuestion("HP1T","EO1"),
-        RadioQuestion("HPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("HPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("HPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("HPR", listOf("DA","NE"),"DA"),
-        RadioQuestion("HPR", listOf("DA","NE"),"DA"),
-        MultiChoiceQuestion("HPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("HPM", listOf(MultiChoiceItem("YES"),MultiChoiceItem("NO"),MultiChoiceItem("MYB")), listOf(MultiChoiceItem("YEs"))),
-        MultiChoiceQuestion("HPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("HPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("HPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA"))),
-        MultiChoiceQuestion("HPM", listOf(MultiChoiceItem("DA"),MultiChoiceItem("Ne"),MultiChoiceItem("MOZDA")), listOf(MultiChoiceItem("DA")))
+        TextQuestion("Napišite izraz koji će razdvojiti sljedeći string na listu od 3 stringa i spasiti je u varijablu \"l\":\ns = \"a b c\"","l = s.split()"),
+        TextQuestion("Napišite sintaksu za prazan višelinijski komentar u pythonu:","\"\"\"\"\"\""),
+        RadioQuestion("Da li je uvlačenje neophodno u pythonu?", listOf("DA","NE"),"DA"),
+        MultiChoiceQuestion("Koji od sljedećih izraza je neispravan?", listOf(MultiChoiceItem("abc = 1,000,000"),MultiChoiceItem("a b c = 1000 2000 3000"),MultiChoiceItem("a,b,c = 1000, 2000, 3000"), MultiChoiceItem("a_b_c = 1,000,000")), listOf(MultiChoiceItem("a b c = 1000 2000 3000"))),
+        MultiChoiceQuestion("Zašto nazivi lokalnih varijabla koji počinju sa donjom crtom (\"_\") nisu dobra praksa?", listOf(MultiChoiceItem("jer se koriste za privatne varijable u klasi"),MultiChoiceItem("jer zbune interpreter"),MultiChoiceItem("jer se koriste za globalne varijable"), MultiChoiceItem("jer usporavaju izvršavanje programa")), listOf(MultiChoiceItem("jer se koriste za privatne varijable u klasi")))
     )
 
 
